@@ -1,3 +1,6 @@
+
+![MEITU_20240718_224453942](https://github.com/user-attachments/assets/9b520ca6-b89b-4e47-acbc-90f7e34f84cb)
+
 ## Node Guides
 
 Welcome to the official GitHub Repository for Node Guides, maintained by RachelNode. I'm Rachel, a PhD student in molecular biology full-time and a node runner part-time. This repository is designed to serve as a comprehensive guide for anyone looking to participate in and understand the intricacies of running nodes on various blockchain networks. Whether you are a developer, a blockchain enthusiast, or a newcomer to the crypto world, these guides will provide you with the essential resources and knowledge to get started.
