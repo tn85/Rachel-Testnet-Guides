@@ -1,5 +1,4 @@
-```markdown
-# Node Guides
+## Node Guides
 
 Welcome to the official GitHub Repository for Node Guides, maintained by RachelNode. I'm Rachel, a PhD student in molecular biology full-time and a node runner part-time. This repository is designed to serve as a comprehensive guide for anyone looking to participate in and understand the intricacies of running nodes on various blockchain networks. Whether you are a developer, a blockchain enthusiast, or a newcomer to the crypto world, these guides will provide you with the essential resources and knowledge to get started.
 
@@ -25,4 +24,3 @@ Contributions are welcome! If you'd like to improve the guides, add new tools, o
 For questions, issues, or support related to node setup and usage, please open an issue in this repository. Our team is committed to assisting you.
 
 Thank you for using the Node Guides. We hope it provides valuable insights and tools to enhance your experience with running blockchain nodes!
-```
