@@ -81,83 +81,86 @@ Run the following command to build the Go file:
 
 **2. Paste the following code into `upload.sh`:**
  **!REMEMBER** Change `NODE_URL`,`UPLOAD_URL`, `KEY` by your your storage node url (http://storage_node_ip:5678) your json rpc endpoint (http://validator_node_ip:8545) and your privatekey
+```
+#!/bin/bash
 
-    #!/bin/bash
+# Create the downloadfile directory if it doesn't exist
+mkdir -p /root/0g-storage-client/downloadfile
 
-    # Create the downloadfile directory if it doesn't exist
-    mkdir -p /root/0g-storage-client/downloadfile
+# Path to the log files
+LOG_FILE="/root/0g-storage-client/upload_log_$(date +"%Y%m%d").log"
+DOWNLOAD_LOG_FILE="/root/0g-storage-client/download_log_$(date +"%Y%m%d").log"
 
-    # Path to the log file
-    LOG_FILE="/root/0g-storage-client/upload_log_$(date +"%Y%m%d").log"
-    DOWNLOAD_LOG_FILE="/root/0g-storage-client/download_log_$(date +"%Y%m%d").log"
+# Initialize the number of successful uploads and downloads
+UPLOAD_COUNT=0
+DOWNLOAD_COUNT=0
 
-    # Initialize the number of successful uploads and downloads
-    UPLOAD_COUNT=0
-    DOWNLOAD_COUNT=0
+for i in $(seq 1 1000000)
+do
+    FILE="file_$(date +"%Y%m%d_%H%M%S")"
 
-    for i in $(seq 1 1000000)
-    do
-        FILE="file_$(date +"%Y%m%d_%H%M%S")"
+    NODE_URL="http://<your_storage_ip>:5678/"
+    UPLOAD_URL="http://<your_validator_ip>:8545/"
+    CONTRACT="0x8873cc79c5b3b5666535C825205C9a128B1D75F1"
+    KEY="your_privatekey"
 
-        NODE_URL="http://<your_storage_ip>:5678/"
-        UPLOAD_URL="http://<your_validator_ip>:8545/"
-        CONTRACT="0x8873cc79c5b3b5666535C825205C9a128B1D75F1"
-        KEY="your_privatekey"
+    # Generate a new file with size 1MB (1,048,576 bytes)
+    /root/0g-storage-client/0g-storage-client gen --size 1048576 --file "$FILE"
 
-        # Generate a new file with size 1MB (1,048,576 bytes)
-        /root/0g-storage-client/0g-storage-client gen --size 1048576 --file "$FILE"
+    # Calculate Merkle root hash and save to variable $AA
+    AA=$(./root_hash "$FILE")
 
-        # Calculate Merkle root hash and save to variable $AA
-        AA=$(./root_hash "$FILE")
+    # Upload the file
+    /root/0g-storage-client/0g-storage-client upload \
+    --url "$UPLOAD_URL" \
+    --contract "$CONTRACT" \
+    --key "$KEY" \
+    --node "$NODE_URL" \
+    --file "$FILE"
 
-        # Upload the file
-        /root/0g-storage-client/0g-storage-client upload \
-        --url "$UPLOAD_URL" \
-        --contract "$CONTRACT" \
-        --key "$KEY" \
-        --node "$NODE_URL" \
-        --file "$FILE"
+    # Check if the file was uploaded successfully
+    if [ $? -eq 0 ]; then
+        UPLOAD_COUNT=$((UPLOAD_COUNT + 1))
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Successfully uploaded file: $FILE" >> "$LOG_FILE"
+    else
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Failed to upload file: $FILE" >> "$LOG_FILE"
+    fi
+    
+    # Wait 1 second before the next upload
+    sleep 1
 
-        # Check if the file was uploaded successfully
-        if [ $? -eq 0 ]; then
-            UPLOAD_COUNT=$((UPLOAD_COUNT + 1))
-            echo "$(date +"%Y-%m-%d %H:%M:%S") - Successfully uploaded file: $FILE" >> "$LOG_FILE"
-        else
-            echo "$(date +"%Y-%m-%d %H:%M:%S") - Failed to upload file: $FILE" >> "$LOG_FILE"
-        fi
-        echo -e "\033[1;33m Uploaded file $FILE with Merkle root $AA\n\033[0m"
+    # Download the file using the Merkle root $AA
+    OUTPUT_FILE="/root/0g-storage-client/downloadfile/downloaded_$FILE"
+    /root/0g-storage-client/0g-storage-client download \
+    --node "$NODE_URL" \
+    --root "$AA" \
+    --file "$OUTPUT_FILE"
 
-        # Wait 1 second before the next upload
-        sleep 1
+    # Check if the file was downloaded successfully
+    if [ $? -eq 0 ]; then
+        DOWNLOAD_COUNT=$((DOWNLOAD_COUNT + 1))
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Successfully downloaded file: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
+    else
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Failed to download file: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
+    fi
 
-        # Download the file using the Merkle root $AA
-        OUTPUT_FILE="/root/0g-storage-client/downloadfile/downloaded_$FILE"
-        /root/0g-storage-client/0g-storage-client download \
-        --node "$NODE_URL" \
-        --root "$AA" \
-        --file "$OUTPUT_FILE"
 
-        # Check if the file was downloaded successfully
-        if [ $? -eq 0 ]; then
-            DOWNLOAD_COUNT=$((DOWNLOAD_COUNT + 1))
-            echo "$(date +"%Y-%m-%d %H:%M:%S") - Successfully downloaded file: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
-        else
-            echo "$(date +"%Y-%m-%d %H:%M:%S") - Failed to download file: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
-        fi
-
-        echo -e "\033[1;33m Successfully downloaded $OUTPUT_FILE\n\033[0m"
-
-        # After uploading and downloading, delete the files to keep the system clean
-        rm "$FILE"
+    # After uploading and downloading, delete the files to keep the system clean
+    rm -f "$FILE"
+    if [ -f "$OUTPUT_FILE" ]; then
         rm "$OUTPUT_FILE"
+    else
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - No such file to remove: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
+    fi
 
-        # Wait 1 second before the next operation
-        sleep 1
-    done
+    # Wait 1 second before the next operation
+    sleep 1
+done
 
-    # Record the total number of successful uploads and downloads
-    echo "$(date +"%Y-%m-%d %H:%M:%S") - Total files successfully uploaded: $UPLOAD_COUNT" >> "$LOG_FILE"
-    echo "$(date +"%Y-%m-%d %H:%M:%S") - Total files successfully downloaded: $DOWNLOAD_COUNT" >> "$DOWNLOAD_LOG_FILE"
+# Record the total number of successful uploads and downloads
+echo "$(date +"%Y-%m-%d %H:%M:%S") - Total files successfully uploaded: $UPLOAD_COUNT" >> "$LOG_FILE"
+echo "$(date +"%Y-%m-%d %H:%M:%S") - Total files successfully downloaded: $DOWNLOAD_COUNT" >> "$DOWNLOAD_LOG_FILE"
+```
 
 **3. Save the file and exit the editor:**
 For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
