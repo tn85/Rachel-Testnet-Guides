@@ -1,31 +1,32 @@
-#Rachel's guide for automatic uploading and downloading of files using the 0G storage client
+## Rachel's guide for automatic uploading and downloading of files using the 0G storage client
+
+
 
 -----------------------------------------------------------------
 
 
-## 1: Create a Directory for Downloads
+## 1. Create a Directory for Downloads
 
-    ```bash
     mkdir -p /root/0g-storage-client/downloadfile
-    ```
+    
 
-## 2: Create the Go File for Calculating Root Hash
+## 2. Create the Go File for Calculating Root Hash
 
-1. **Navigate to the 0g-storage-client directory:**
+**1. Navigate to the 0g-storage-client directory:**
+ ```bash
+   cd /root/0g-storage-client
+  ```
 
-    ```bash
-    cd /root/0g-storage-client
-    ```
+**2. Create the `root_hash.go` file:**
 
-2. **Create the `root_hash.go` file:**
-
-    ```bash
+  ```bash
     nano root_hash.go
-    ```
+  ```
 
-3. **Paste the following code into `root_hash.go`:**
+**3. Paste the following code into `root_hash.go`:**
 
-    ```go
+```
+    go
     package main
 
     import (
@@ -71,30 +72,30 @@
 
         fmt.Println(merkleRoot)
     }
-    ```
+```
 
-4. **Save the file and exit the editor:**
-   - For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
+**4. Save the file and exit the editor:**
+   For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
 
-## 3: Build the Go File
+## 3. Build the Go File
+Run the following command to build the Go file:
 
-1. **Run the following command to build the Go file:**
-
-    ```bash
+```bash
     go build -o root_hash root_hash.go
-    ```
+```
 
-## 4: Create the Upload Script
+## 4. Create the Upload Script
 
-1. **Create the `upload.sh` file:**
+**1. Create the `upload.sh` file:**
 
-    ```bash
+```bash
     nano /root/0g-storage-client/upload.sh
-    ```
+```
 
-2. **Paste the following code into `upload.sh`:**
+**2. Paste the following code into `upload.sh`:**
 
-    ```bash
+```
+    bash
     #!/bin/bash
 
     # Create the downloadfile directory if it doesn't exist
@@ -171,35 +172,35 @@
     # Record the total number of successful uploads and downloads
     echo "$(date +"%Y-%m-%d %H:%M:%S") - Total files successfully uploaded: $UPLOAD_COUNT" >> "$LOG_FILE"
     echo "$(date +"%Y-%m-%d %H:%M:%S") - Total files successfully downloaded: $DOWNLOAD_COUNT" >> "$DOWNLOAD_LOG_FILE"
-    ```
+```
 
-3. **Save the file and exit the editor:**
-   - For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
+**3. Save the file and exit the editor:**
+For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
 
-## 5: Make the Script Executable
+## 5. Make the Script Executable
 
-1. **Run the following command to make the script executable:**
+**1. Run the following command to make the script executable:**
 
-    ```bash
+```bash
     chmod +x /root/0g-storage-client/upload.sh
-    ```
+```
 
 ## 6: Schedule the Script to Run at Midnight Using Cron
 
-1. **Open the crontab editor:**
+**1. Open the crontab editor:**
 
-    ```bash
+```bash
     crontab -e
-    ```
+```
 
-2. **Add the following line to schedule the script to run at midnight every day:**
+**2. Add the following line to schedule the script to run at midnight every day:**
 
-    ```bash
+```bash
     0 0 * * * /root/0g-storage-client/upload.sh
-    ```
+```
 
-3. **Save the file and exit the editor:**
-   - For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
+**3. Save the file and exit the editor:**
+For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
 
 -----------------------------------------------------------------
 
@@ -207,19 +208,19 @@
 
  **Run the script manually to start the upload and download process:**
 
-    ```bash
+```bash
     ./upload.sh
-    ```
+```
 
  **To check the number of successful uploads in a day:**
 
-    ```bash
+```bash
     grep "Successfully uploaded" /root/0g-storage-client/upload_log_$(date +"%Y%m%d").log | wc -l
-    ```
+```
 
 2. **To check the number of successful downloads in a day:**
 
-    ```bash
+```bash
     grep "Successfully downloaded" /root/0g-storage-client/download_log_$(date +"%Y%m%d").log | wc -l
-    ```
+```
 
