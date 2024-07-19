@@ -1,4 +1,4 @@
-![0G Github Banner](https://github.com/BlockchainsHub/Testnet/assets/77204008/34a32724-b411-41e4-8696-e390dfa01cab)
+
 
 # 0G DA Guide
 This guide will help you in the 0G DA node installation process.
