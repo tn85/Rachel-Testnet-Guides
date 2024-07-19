@@ -93,7 +93,7 @@ Run the following command to build the Go file:
 # Create the downloadfile directory if it doesn't exist
 mkdir -p /root/0g-storage-client/downloadfile
 
-# Path to the log files
+# Path to the log file
 LOG_FILE="/root/0g-storage-client/upload_log_$(date +"%Y%m%d").log"
 DOWNLOAD_LOG_FILE="/root/0g-storage-client/download_log_$(date +"%Y%m%d").log"
 
@@ -131,7 +131,7 @@ do
     else
         echo "$(date +"%Y-%m-%d %H:%M:%S") - Failed to upload file: $FILE" >> "$LOG_FILE"
     fi
-    
+
     # Wait 1 second before the next upload
     sleep 1
 
@@ -150,14 +150,9 @@ do
         echo "$(date +"%Y-%m-%d %H:%M:%S") - Failed to download file: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
     fi
 
-
     # After uploading and downloading, delete the files to keep the system clean
-    rm -f "$FILE"
-    if [ -f "$OUTPUT_FILE" ]; then
-        rm "$OUTPUT_FILE"
-    else
-        echo "$(date +"%Y-%m-%d %H:%M:%S") - No such file to remove: $OUTPUT_FILE" >> "$DOWNLOAD_LOG_FILE"
-    fi
+    rm "$FILE"
+    rm "$OUTPUT_FILE"
 
     # Wait 1 second before the next operation
     sleep 1
