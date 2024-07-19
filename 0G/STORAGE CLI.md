@@ -12,7 +12,6 @@ go build
 ## 2. Create a Test file for uploading with storage CLI
  ```bash
 cd $HOME/0g-storage-client
-# Generate a test file. Add --file <file-name> to specify a file name.
 read -p "Enter the file name you want to create (leave blank to use tmp123456): " FILE_NAME
 if [ -z "$FILE_NAME" ]; then
   FILE_NAME="tmp123456"
@@ -60,8 +59,9 @@ cd $HOME/0g-storage-client
 
  ```
 ## 5.Download the test file with storage CLI
+
+Set file_root_hash you want to download to environment
  ```bash
-# set file_root_hash you want to download to environment
 root=<file_root_hash you want to download>
  ```
 
