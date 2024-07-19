@@ -79,7 +79,14 @@ Run the following command to build the Go file:
     nano /root/0g-storage-client/upload.sh
 
 **2. Paste the following code into `upload.sh`:**
- **!REMEMBER** Change `NODE_URL`,`UPLOAD_URL`, `KEY` by your your storage node url (http://storage_node_ip:5678) your json rpc endpoint (http://validator_node_ip:8545) and your privatekey
+ 
+ **!REMEMBER** Change this variables
+ 
+ **`NODE_URL`**    :your your storage node url (http://storage_node_ip:5678)
+ 
+ **`UPLOAD_URL`**  :your json rpc endpoint (http://validator_node_ip:8545)
+ 
+ **`KEY`**         :your privatekey
 ```
 #!/bin/bash
 
