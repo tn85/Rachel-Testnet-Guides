@@ -20,11 +20,11 @@ cd $HOME/0g-storage-client
 ## 3.Prepare for CLI
 ### Input your json-rpc and storage node url
  ```bash
-STORAGE_PORT=$(grep -oP '(?<=rpc_listen_address = "0.0.0.0:)\d+(?=")' $HOME/0g-storage-node/run/config.toml)
+STORAGE_PORT=$(grep -oP '(?<=rpc_listen_address = "0.0.0.0:)\d+(?=")' $HOME/0g-storage-node/run/config-testnet.toml)
 STORAGE_RPC_ENDPOINT=http://$(wget -qO- eth0.me):$STORAGE_PORT
-BLOCKCHAIN_RPC_ENDPOINT=$(sed -n 's/blockchain_rpc_endpoint = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config.toml)
-LOG_CONTRACT_ADDRESS=$(sed -n 's/log_contract_address = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config.toml)
-MINE_CONTRACT_ADDRESS=$(sed -n 's/mine_contract_address = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config.toml)
+BLOCKCHAIN_RPC_ENDPOINT=$(sed -n 's/blockchain_rpc_endpoint = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config-testnet.toml)
+LOG_CONTRACT_ADDRESS=$(sed -n 's/log_contract_address = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config-testnet.toml)
+MINE_CONTRACT_ADDRESS=$(sed -n 's/mine_contract_address = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config-testnet.toml)
 JSON_PORT=$(sed -n '/\[json-rpc\]/,/^address/ s/address = "0.0.0.0:\([0-9]*\)".*/\1/p' $HOME/.0gchain/config/app.toml)
 JSON_RPC_ENDPOINT=http://$(wget -qO- eth0.me):$JSON_PORT
 echo -e "STORAGE_RPC_ENDPOINT: $STORAGE_RPC_ENDPOINT\nLOG_CONTRACT_ADDRESS: $LOG_CONTRACT_ADDRESS\nMINE_CONTRACT_ADDRESS: $MINE_CONTRACT_ADDRESS\nBLOCKCHAIN_RPC_ENDPOINT: $BLOCKCHAIN_RPC_ENDPOINT\nJSON_RPC_ENDPOINT: $JSON_RPC_ENDPOINT"
