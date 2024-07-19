@@ -196,7 +196,7 @@ For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
 
  **Run the script manually to start the upload and download process:**
 
-    ./upload.sh
+    ./root/0g-storage-client/upload.sh
 
  **To check the number of successful uploads in a day:**
 
