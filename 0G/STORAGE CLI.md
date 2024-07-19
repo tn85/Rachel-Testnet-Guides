@@ -4,7 +4,7 @@
 
 ## 1. Build Storage CLI with source code
  ```bash
- git clone https://github.com/0glabs/0g-storage-client.git
+git clone https://github.com/0glabs/0g-storage-client.git
 cd 0g-storage-client
 go build
  ```
@@ -12,14 +12,20 @@ go build
 ## 2. Create a Test file for uploading with storage CLI
  ```bash
 cd $HOME/0g-storage-client
-./0g-storage-client gen
-# this command will create a test file "tmp123456" in your location
-# add --file <file-name> to get a specific file name.filetype
+# Generate a test file. Add --file <file-name> to specify a file name.
+read -p "Enter the file name you want to create (leave blank to use tmp123456): " FILE_NAME
+if [ -z "$FILE_NAME" ]; then
+  FILE_NAME="tmp123456"
+  ./0g-storage-client gen
+else
+  ./0g-storage-client gen --file $FILE_NAME
+fi
  ```
 
 ## 3.Prepare for CLI
 ### Input your json-rpc and storage node url
  ```bash
+# Input your json-rpc and storage node URL
 STORAGE_PORT=$(grep -oP '(?<=rpc_listen_address = "0.0.0.0:)\d+(?=")' $HOME/0g-storage-node/run/config-testnet.toml)
 STORAGE_RPC_ENDPOINT=http://$(wget -qO- eth0.me):$STORAGE_PORT
 BLOCKCHAIN_RPC_ENDPOINT=$(sed -n 's/blockchain_rpc_endpoint = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config-testnet.toml)
@@ -39,11 +45,10 @@ echo -e "\033[1;35m-byRachelnguyen\033[0m"
  ```
 
 ## 4.Upload the test file with storage CLI
-Change the file name to upload any other file ( --file <file-name>)
-Your node will submit a the file upload and you will need to `WAIT` until the file complete its process 
+Your node will submit the file upload and you will need to WAIT until the file completes its process
 
  ```bash
-# upload test file generated
+# Upload the generated test file
 cd $HOME/0g-storage-client
 
 ./0g-storage-client upload \
@@ -51,7 +56,7 @@ cd $HOME/0g-storage-client
 --contract $LOG_CONTRACT_ADDRESS \
 --key $PRIVATE_KEY \
 --node $STORAGE_RPC_ENDPOINT \
---file tmp123456
+--file $FILE_NAME
 
  ```
 ## 5.Download the test file with storage CLI
@@ -61,11 +66,11 @@ root=<file_root_hash you want to download>
  ```
 
  ```bash
-# download test file uploaded
+# Download the uploaded test file
 cd $HOME/0g-storage-client
 
 ./0g-storage-client download \
 --node $STORAGE_RPC_ENDPOINT \
 --root $root \
---file tmp123456_dl
+--file ${FILE_NAME}_dl
  ```
