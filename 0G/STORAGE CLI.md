@@ -28,6 +28,8 @@ MINE_CONTRACT_ADDRESS=$(sed -n 's/mine_contract_address = "\([^"]*\)"/\1/p' $HOM
 JSON_PORT=$(sed -n '/\[json-rpc\]/,/^address/ s/address = "0.0.0.0:\([0-9]*\)".*/\1/p' $HOME/.0gchain/config/app.toml)
 JSON_RPC_ENDPOINT=http://$(wget -qO- eth0.me):$JSON_PORT
 echo -e "STORAGE_RPC_ENDPOINT: $STORAGE_RPC_ENDPOINT\nLOG_CONTRACT_ADDRESS: $LOG_CONTRACT_ADDRESS\nMINE_CONTRACT_ADDRESS: $MINE_CONTRACT_ADDRESS\nBLOCKCHAIN_RPC_ENDPOINT: $BLOCKCHAIN_RPC_ENDPOINT\nJSON_RPC_ENDPOINT: $JSON_RPC_ENDPOINT"
+
+echo -e "\033[1;35m-byRachelnguyen\033[0m"
 ```
 ### Input your private key 
  ```bash
@@ -49,12 +51,11 @@ cd $HOME/0g-storage-client
 --node $STORAGE_RPC_ENDPOINT \
 --file tmp123456
 
-echo -e "\033[1;35m-byRachelnguyen\033[0m"
  ```
 ## 5.Download the test file with storage CLI
  ```bash
 # set file_root_hash you want to download to environment
-root=0xac0bd9d83e593ec52dd5fe9d68b779c0bec25e820b501489567a9c5448971cef
+root=<file_root_hash you want to download>
  ```
 
  ```bash
