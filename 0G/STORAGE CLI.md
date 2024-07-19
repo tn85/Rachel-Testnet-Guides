@@ -33,7 +33,9 @@ echo -e "\033[1;35m-byRachelnguyen\033[0m"
 ```
 ### Input your private key 
  ```bash
- read -sp "Enter private key: " PRIVATE_KEY && echo
+ read -sp "Enter private key: " PRIVATE_KEY
+ echo $PRIVATE_KEY
+
  ```
 
 ## 4.Upload the test file with storage CLI
