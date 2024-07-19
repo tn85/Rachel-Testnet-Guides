@@ -6,26 +6,18 @@
 
 
 ## 1. Create a Directory for Downloads
-
     mkdir -p /root/0g-storage-client/downloadfile
     
 
 ## 2. Create the Go File for Calculating Root Hash
 
-**1. Navigate to the 0g-storage-client directory:**
- ```bash
-   cd /root/0g-storage-client
-  ```
-
-**2. Create the `root_hash.go` file:**
-
-  ```bash
+**1. Create the `root_hash.go` file in 0g-storage-client directory:**
+        
+    cd /root/0g-storage-client
     nano root_hash.go
-  ```
 
-**3. Paste the following code into `root_hash.go`:**
+**2. Paste the following code into `root_hash.go`:**
 
-```
     go
     package main
 
@@ -72,8 +64,7 @@
 
         fmt.Println(merkleRoot)
     }
-```
-
+    
 **4. Save the file and exit the editor:**
    For `nano`, press `Ctrl + X`, then `Y` to confirm saving, and `Enter` to exit.
 
