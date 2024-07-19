@@ -1,11 +1,11 @@
 
-![MEITU_20240718_224453942](https://github.com/user-attachments/assets/9b520ca6-b89b-4e47-acbc-90f7e34f84cb)
+<img width="960" alt="Bìa" src="https://github.com/user-attachments/assets/86853d03-2609-4fc4-9f35-f64d29bf491f">
 
-## Node Guides
+## Introduction
 
 Welcome to the official GitHub Repository for Node Guides, maintained by RachelNode. I'm Rachel, a PhD student in molecular biology full-time and a node runner part-time. This repository is designed to serve as a comprehensive guide for anyone looking to participate in and understand the intricacies of running nodes on various blockchain networks. Whether you are a developer, a blockchain enthusiast, or a newcomer to the crypto world, these guides will provide you with the essential resources and knowledge to get started.
 
-## Introduction
+## Node Guides
 
 Running a node is a crucial part of maintaining and supporting blockchain networks. Nodes help validate transactions, secure the network, and ensure decentralization. This repository aims to provide step-by-step instructions and best practices for setting up and managing nodes across different blockchain projects.
 
