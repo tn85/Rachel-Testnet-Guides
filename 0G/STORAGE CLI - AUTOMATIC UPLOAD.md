@@ -18,7 +18,6 @@
 
 **2. Paste the following code into `root_hash.go`:**
 
-    go
     package main
 
     import (
