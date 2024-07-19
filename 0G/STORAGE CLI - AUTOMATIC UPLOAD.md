@@ -80,6 +80,7 @@ Run the following command to build the Go file:
     nano /root/0g-storage-client/upload.sh
 
 **2. Paste the following code into `upload.sh`:**
+ **!REMEMBER** Change `NODE_URL`,`UPLOAD_URL`, `KEY` by your your storage node url (http://storage_node_ip:5678) your json rpc endpoint (http://validator_node_ip:8545) and your privatekey
 
     #!/bin/bash
 
@@ -98,10 +99,10 @@ Run the following command to build the Go file:
     do
         FILE="file_$(date +"%Y%m%d_%H%M%S")"
 
-        NODE_URL="http://162.55.29.103:5678/"
-        UPLOAD_URL="http://49.12.175.10:8545/"
+        NODE_URL="http://<your_storage_ip>:5678/"
+        UPLOAD_URL="http://<your_validator_ip>:8545/"
         CONTRACT="0x8873cc79c5b3b5666535C825205C9a128B1D75F1"
-        KEY=""
+        KEY="your_privatekey"
 
         # Generate a new file with size 1MB (1,048,576 bytes)
         /root/0g-storage-client/0g-storage-client gen --size 1048576 --file "$FILE"
