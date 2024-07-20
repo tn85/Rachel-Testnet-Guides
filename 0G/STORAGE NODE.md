@@ -28,7 +28,7 @@
    
    ```bash
    read -p "Enter json-rpc: " BLOCKCHAIN_RPC_ENDPOINT && echo "Current json-rpc: $BLOCKCHAIN_RPC_ENDPOINT"
-   ENR_ADDRESS=$(wget -qO- eth0.me)
+   ENR_ADDRESS=$(curl -s ifconfig.me)
    echo "export ENR_ADDRESS=${ENR_ADDRESS}" >> ~/.bash_profile
    echo 'export ZGS_LOG_DIR="$HOME/0g-storage-node/run/log"' >> ~/.bash_profile
    echo 'export ZGS_LOG_SYNC_BLOCK="802"' >> ~/.bash_profile
