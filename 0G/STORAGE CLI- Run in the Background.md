@@ -80,7 +80,7 @@ Ensure that the root_hash script is executable.
 
 **1. Create the `upload.sh` file:**
 
-    nano /root/0g-storage-client/upload.sh
+    nano /root/0g-storage-client/download_upload.sh
 
 **2. Paste the following code into `upload.sh`:**
  
