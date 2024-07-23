@@ -76,12 +76,12 @@ If you encountered the error like this picture, This is because there is no go.m
 
 To resolve this issue, you need to initialize a Go module in your project directory and then add the necessary dependencies. Here’s how you can do it:
 
-**Initialize the Go Module**
+*Initialize the Go Module*
 
     cd /root/0g-storage-client
     go mod init github.com/rachel/0g-storage-client
 
-**Add Required Dependencies**
+*Add Required Dependencies*
 
     go get github.com/0glabs/0g-storage-client/core
     go get github.com/pkg/errors
