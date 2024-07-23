@@ -187,7 +187,7 @@ Run the script in the background and redirect the output to a log file.
  **Check the Log File**
  If you want more detailed output, you can periodically check the background_run.log file for any runtime errors or issues.
  
-      tail -f /root/0g-storage-client/background_run.log
+    tail -f /root/0g-storage-client/background_run.log
 
 You can see all the log file (/root/0g-storage-client/background_run.log) for any errors or issues. 
 
