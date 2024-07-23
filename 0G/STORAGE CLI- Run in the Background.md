@@ -71,6 +71,21 @@ Run the following command to build the Go file:
 
     go build -o root_hash root_hash.go
 
+If you encountered the error like this picture, This is because there is no go.mod file in your directory, which is required for dependency management in Go.
+![image](https://github.com/user-attachments/assets/f7963bda-2415-46f7-b4e0-815a0e4a141e)
+
+To resolve this issue, you need to initialize a Go module in your project directory and then add the necessary dependencies. Here’s how you can do it:
+
+**Initialize the Go Module**
+
+    cd /root/0g-storage-client
+    go mod init github.com/rachel/0g-storage-client
+
+**Add Required Dependencies**
+
+    go get github.com/0glabs/0g-storage-client/core
+    go get github.com/pkg/errors
+
 ## 4. Ensure root_hash Has Execution Permissions
 Ensure that the root_hash script is executable.
 
