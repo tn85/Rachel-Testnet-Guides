@@ -189,6 +189,10 @@ Run the script in the background and redirect the output to a log file.
  
       tail -f /root/0g-storage-client/background_run.log
 
+You can see all the log file (/root/0g-storage-client/background_run.log) for any errors or issues. 
+
+    cat /root/0g-storage-client/background_run.log
+
 **Count Successful Uploads and Downloads**
 
       grep -c "Successfully uploaded file" /root/0g-storage-client/upload_log_$(date +"%Y%m%d").log
