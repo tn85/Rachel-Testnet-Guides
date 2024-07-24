@@ -1,5 +1,15 @@
 ## 0gchain Storage Node Deployment Guide version: ``v0.3.4``
 
+
+## Required Hardware Specifications
+| Required | Specification |
+|-|-
+| CPU | 4 Cores |
+| Memory | 16 GB |
+| Storage | 500 GB NVMe SSD |
+| Bandwidth | 100mbps |
+| OS | Linux |
+
 ### 1. Install dependencies
    ```bash
    sudo apt-get update
@@ -43,7 +53,6 @@
 
    You can check your ENR_ADDRESS again for sure
      
-     cd 0g-storage-node
      echo $ENR_ADDRESS
 
 ### 5. download binary
