@@ -1,4 +1,4 @@
-BEFORE YOU DEPLOY THE STORAGE KV NODE, FIRST YOU MUST DEPLOY YOUR [STORAGE NODE](https://github.com/hubofvalley/Testnet-Guides/blob/main/0g%20(zero-gravity)/storage-node/storage-node.md)
+BEFORE YOU DEPLOY THE STORAGE KV NODE, FIRST YOU MUST DEPLOY YOUR [STORAGE NODE](https://github.com/tn85/Rachel-Testnet-Guides/blob/main/0G/Storage_%20New%20contract.md)
 
 ## 0gchain Storage KV Deployment Guide
 
@@ -27,17 +27,17 @@ BEFORE YOU DEPLOY THE STORAGE KV NODE, FIRST YOU MUST DEPLOY YOUR [STORAGE NODE]
    ```
 
 ### 4. set vars
-   PLEASE INPUT YOUR STORAGE NODE URL (http://STORAGE_NODE_IP:5678,http://STORAGE_NODE_IP:5679) , YOUR JSON RPC ENDPOINT (VALIDATOR_NODE_IP:8545) OR YOU CAN OUR ENDPOINTS PLEASE CHECK [README](https://github.com/hubofvalley/Testnet-Guides/blob/main/0g%20(zero-gravity)/README.md)
+
    ```bash
    read -p "Enter json-rpc: " BLOCKCHAIN_RPC_ENDPOINT && echo "Current json-rpc: $BLOCKCHAIN_RPC_ENDPOINT" &&
    read -p "Enter storage node urls: " ZGS_NODE && echo "Current storage node urls: $ZGS_NODE"
    ```
 
    ```bash
-   echo 'export ZGS_LOG_SYNC_BLOCK="802"' >> ~/.bash_profile
+   echo 'export ZGS_LOG_SYNC_BLOCK="401178"' >> ~/.bash_profile
    echo "export ZGS_NODE=\"$ZGS_NODE\"" >> ~/.bash_profile
-   echo 'export LOG_CONTRACT_ADDRESS="0x8873cc79c5b3b5666535C825205C9a128B1D75F1"' >> ~/.bash_profile
-   echo 'export MINE_CONTRACT="0x85F6722319538A805ED5733c5F4882d96F1C7384"' >> ~/.bash_profile
+   echo 'export LOG_CONTRACT_ADDRESS="0xB7e39604f47c0e4a6Ad092a281c1A8429c2440d3"' >> ~/.bash_profile
+   echo 'export MINE_CONTRACT="0x6176AA095C47A7F79deE2ea473B77ebf50035421"' >> ~/.bash_profile
    echo "export BLOCKCHAIN_RPC_ENDPOINT=\"$BLOCKCHAIN_RPC_ENDPOINT\"" >> ~/.bash_profile
    
    source ~/.bash_profile
@@ -48,15 +48,12 @@ BEFORE YOU DEPLOY THE STORAGE KV NODE, FIRST YOU MUST DEPLOY YOUR [STORAGE NODE]
 ### 5. download binary
    ```bash
    cd $HOME
+   sudo apt install cargo
    git clone https://github.com/0glabs/0g-storage-kv.git
    cd $HOME/0g-storage-kv
    git fetch
    git checkout tags/v1.1.0-testnet
    git submodule update --init
-   sudo apt install cargo
-   ```
-   then build it
-   ```bash
    cargo build --release
    ```
 
@@ -113,8 +110,6 @@ BEFORE YOU DEPLOY THE STORAGE KV NODE, FIRST YOU MUST DEPLOY YOUR [STORAGE NODE]
    ```bash
    sudo journalctl -u zgskv -fn 100 -o cat
    ```
-   MAKE SURE YOUR LOGS HAS THE SYNCED TX_SEQ(tx sequence) VALUE, CHECK [STORAGE SCAN](https://storagescan-newton.0g.ai/)
-   ![image](https://github.com/hubofvalley/Testnet-Guides/assets/100946299/ce2d8707-190d-4931-8ed1-44c1447fe360)
 
 ## delete the node
    ```bash
