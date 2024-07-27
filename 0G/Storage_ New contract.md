@@ -50,7 +50,7 @@
 ### 5. download binary
   ```bash
   cd $HOME
-  sudo apt insatll git cargo jq
+  sudo apt install git cargo jq
   git clone https://github.com/0glabs/0g-storage-node.git
   cd $HOME/0g-storage-node
   git stash
