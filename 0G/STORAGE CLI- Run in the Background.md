@@ -125,7 +125,7 @@ do
 
     NODE_URL="http://<your_storage_ip>:5678/"
     UPLOAD_URL="http://<your_validator_ip>:8545/"
-    CONTRACT="0x8873cc79c5b3b5666535C825205C9a128B1D75F1"
+    CONTRACT="0xB7e39604f47c0e4a6Ad092a281c1A8429c2440d3"
     KEY="your_privatekey"
 
     # Generate a new file
@@ -209,12 +209,12 @@ You can see all the log file (/root/0g-storage-client/background_run.log) for an
     cat /root/0g-storage-client/background_run.log
 
 **Count Successful Uploads and Downloads**
-Change `20240723` to the date you start run client.
+Change `20240728` to the date you start run client.
 For example, i start run client from 23/07/2024
 
-      grep -c "Successfully uploaded file" /root/0g-storage-client/upload_log_20240723.log
+      grep -c "Successfully uploaded file" /root/0g-storage-client/upload_log_20240728.log
 
-      grep -c "Successfully downloaded file" /root/0g-storage-client/upload_log_20240723.log
+      grep -c "Successfully downloaded file" /root/0g-storage-client/upload_log_20240728.log
 
 
 
