@@ -4,6 +4,13 @@
 
 -----------------------------------------------------------------
 
+## 0. Build Storage CLI with source code
+ ```bash
+git clone https://github.com/0glabs/0g-storage-client.git
+cd 0g-storage-client
+go build
+ ```
+
 
 ## 1. Create a Directory for Downloads
     
