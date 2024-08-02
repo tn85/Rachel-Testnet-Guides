@@ -3,13 +3,13 @@
 ### 1. Install dependencies for building from source
    ```bash
    sudo apt-get update
-   sudo apt-get install clang cmake build-essential
-   sudo apt install git
-   sudo apt install libssl-dev
-   sudo apt install pkg-config
-   sudo apt-get install protobuf-compiler
-   sudo apt-get install clang
-   sudo apt-get install llvm llvm-dev
+   sudo apt-get install clang cmake build-essential -y
+   sudo apt install git jq -y
+   sudo apt install libssl-dev -y
+   sudo apt install pkg-config -y
+   sudo apt-get install protobuf-compiler -y
+   sudo apt-get install clang -y
+   sudo apt-get install llvm llvm-dev -y
    ```
 
 ### 2. install go
@@ -50,17 +50,14 @@
 ### 5. download binary
   ```bash
   cd $HOME
-  sudo apt install git cargo jq
+  sudo apt install cargo 
   git clone https://github.com/0glabs/0g-storage-node.git
-  cd $HOME/0g-storage-node
-  git stash
-  git tag -d v0.3.4
-  git fetch --all --tags
-  git checkout 7d73ccd
+  cd 0g-storage-node
   git submodule update --init
   cargo build --release
   ```
-You can check your ENR_ADDRESS again for sure
+
+Check your ENR_ADDRESS again for sure
     
     echo $ENR_ADDRESS
 
