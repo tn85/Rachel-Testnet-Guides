@@ -209,12 +209,12 @@ You can see all the log file (/root/0g-storage-client/background_run.log) for an
     cat /root/0g-storage-client/background_run.log
 
 **Count Successful Uploads and Downloads**
-Change `20240728` to the date you start run client.
-For example, i start run client from 23/07/2024
+Change `20240802` to the date you start run client.
+For example, i start run client from 02/08/2024
 
-      grep -c "Successfully uploaded file" /root/0g-storage-client/upload_log_20240728.log
+      grep -c "Successfully uploaded file" /root/0g-storage-client/upload_log_20240802.log
 
-      grep -c "Successfully downloaded file" /root/0g-storage-client/upload_log_20240728.log
+      grep -c "Successfully downloaded file" /root/0g-storage-client/upload_log_20240802.log
 
 
 
