@@ -43,7 +43,7 @@ echo -e "\n\033[31mCHECK YOUR STORAGE NODE VARIABLES\033[0m\n\nLOG_CONTRACT_ADDR
   
 ### 5. download binary
 ```bash
-sudo apt install git cargo
+sudo apt install git cargo jq
 git clone https://github.com/0glabs/0g-storage-node.git
 cd 0g-storage-node
 git checkout v0.4.2 
