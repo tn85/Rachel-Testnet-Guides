@@ -151,7 +151,6 @@ do
     --key "$KEY" \
     --node "$NODE_URL" \
     --file "$FILE"
-    --gas-limit 25000000
 
     # Check if the file was uploaded successfully
     if [ $? -eq 0 ]; then
@@ -170,7 +169,6 @@ do
     --node "$NODE_URL" \
     --root "$AA" \
     --file "$OUTPUT_FILE"
-    --gas-limit 25000000
 
     # Check if the file was downloaded successfully
     if [ $? -eq 0 ]; then
