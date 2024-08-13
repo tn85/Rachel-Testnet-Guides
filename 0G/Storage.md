@@ -1,15 +1,9 @@
-## Storage Node  Guide with current binaries version: ``v0.3.4``
+## Storage Node  Guide with current binaries version: ``v0.4.2``
 
 ### 1. Install dependencies for building from source
    ```bash
    sudo apt-get update
-   sudo apt-get install clang cmake build-essential -y
-   sudo apt install git jq -y
-   sudo apt install libssl-dev -y
-   sudo apt install pkg-config -y
-   sudo apt-get install protobuf-compiler -y
-   sudo apt-get install clang -y
-   sudo apt-get install llvm llvm-dev -y
+   sudo apt-get install clang cmake build-essential
    ```
 
 ### 2. install go
@@ -48,15 +42,14 @@
 
   
 ### 5. download binary
-  ```bash
-  cd $HOME
-  sudo apt install cargo 
-  git clone https://github.com/0glabs/0g-storage-node.git
-  cd 0g-storage-node
-  git checkout tags/v0.3.4
-  git submodule update --init
-  cargo build --release
-  ```
+```bash
+sudo apt install git cargo
+git clone https://github.com/0glabs/0g-storage-node.git
+cd 0g-storage-node
+git checkout v0.4.2 
+git submodule update --init
+cargo build --release
+```
 
 Check your ENR_ADDRESS again for sure
     
