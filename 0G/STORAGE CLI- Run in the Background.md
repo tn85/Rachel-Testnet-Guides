@@ -132,11 +132,11 @@ do
 
     NODE_URL="http://<your_storage_ip>:5678/"
     UPLOAD_URL="http://<your_validator_ip>:8545/"
-    CONTRACT="0xB7e39604f47c0e4a6Ad092a281c1A8429c2440d3"
+    CONTRACT="0xbD2C3F0E65eDF5582141C35969d66e34629cC768"
     KEY="your_privatekey"
 
     # Generate a new file
-    /root/0g-storage-client/0g-storage-client gen --size 1048576 --file "$FILE"
+    /root/0g-storage-client/0g-storage-client gen --size 102400 --file "$FILE"
 
     # Calculate Merkle root hash and save it to variable $AA
     AA=$(/root/0g-storage-client/root_hash "$FILE")
@@ -151,6 +151,7 @@ do
     --key "$KEY" \
     --node "$NODE_URL" \
     --file "$FILE"
+    --gas-limit 25000000
 
     # Check if the file was uploaded successfully
     if [ $? -eq 0 ]; then
@@ -169,6 +170,7 @@ do
     --node "$NODE_URL" \
     --root "$AA" \
     --file "$OUTPUT_FILE"
+    --gas-limit 25000000
 
     # Check if the file was downloaded successfully
     if [ $? -eq 0 ]; then
