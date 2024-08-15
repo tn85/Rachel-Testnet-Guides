@@ -1,7 +1,4 @@
 
-
-# How to Setup an AVS Operator
-
 ## System Requirement
 ![Screenshot_1](https://github.com/user-attachments/assets/91ebbc59-8134-4118-8162-8e9ae827344f)
 
