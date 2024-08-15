@@ -88,7 +88,7 @@ eigenlayer operator keys import --key-type ecdsa opr PRIVATEKEY
 
 ##  Fund your Eigen wallet
 You’ll need at least 1 Holesky ETH to cover the gas cost of the operator registration. Make sure to send at least 1 ETH to your Eigenlayer operator’s address
-
+You can faucet 1 Holesky ETH in here: https://cloud.google.com/application/web3/faucet/ethereum/holesky
 ## 5. Config & register operator
 ```console
 eigenlayer operator config create
