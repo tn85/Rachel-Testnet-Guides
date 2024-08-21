@@ -52,8 +52,9 @@ galacticad config keyring-backend os
 ```
 galacticad config chain-id galactica_9302-1
 ```
+change `node_name` to your node_name
 ```
-galacticad init "thinaxinh" --chain-id galactica_9302-1
+galacticad init "node_name" --chain-id galactica_9302-1
 ```
 
 ## 6. Download genesis and addrbook
@@ -191,8 +192,7 @@ RÊMMBER TO CHANGE YOUR NODE NAME
 
     galacticad tx staking delegate $(galacticad keys show $WALLET --bech val -a) <AMOUNT>agnet \
     --from wallet \
-    --chain-id= galactica_9302-1 \
-    --gas=auto \
+    --chain-id=galactica_9302-1 \
     --gas-adjustment=1.4 \
     --gas-prices 300000agne \
     -y
