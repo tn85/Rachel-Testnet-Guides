@@ -1,4 +1,11 @@
-
+## Hardware requirements
+```py
+- Memory: 16 GB RAM
+- CPU: 4 cores
+- Disk: 500 GB NVME SSD
+- Bandwidth: 100mbps Gbps for Download / Upload
+- Linux amd64 arm64 (The guide was tested on Ubuntu 22.04 LTS)
+```
 
 ### 1. Install dependencies for building from source
 
