@@ -193,9 +193,10 @@ RÊMMBER TO CHANGE YOUR NODE NAME
     galacticad tx staking delegate $(galacticad keys show $WALLET --bech val -a) <AMOUNT>agnet \
     --from wallet \
     --chain-id=galactica_9302-1 \
-    --gas-adjustment=1.4 \
-    --gas-prices 300000agne \
+    --gas="300000" \
+    --gas-prices="100agnet" \
     -y
+
 
 
 
