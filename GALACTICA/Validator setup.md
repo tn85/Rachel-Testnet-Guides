@@ -117,11 +117,14 @@ s%:26660%:${GALACTICA_PORT}660%g" $HOME/.galactica/config/config.toml
 ```
 galacticad tendermint unsafe-reset-all --home $HOME/.galactica
 ```    
-    if curl -s --head curl https://server-4.itrocket.net/testnet/galactica/galactica_2024-08-21_1997389_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-      curl https://server-4.itrocket.net/testnet/galactica/galactica_2024-08-21_1997389_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.galactica
-        else
-      echo "no snapshot founded"
-    fi
+    
+```
+    if curl -s --head curl https://server-4.itrocket.net/testnet/galactica/galactica_2024-08-22_2010278_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl https://server-4.itrocket.net/testnet/galactica/galactica_2024-08-22_2010278_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.galactica
+    else
+  echo "no snapshot founded"
+fi
+```
 
 ## 13. Start the node
     sudo systemctl daemon-reload
