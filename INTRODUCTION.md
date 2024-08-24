@@ -1,5 +1,4 @@
 
-<img width="960" alt="Bìa" src="https://github.com/user-attachments/assets/86853d03-2609-4fc4-9f35-f64d29bf491f">
 
 ## Introduction
 
