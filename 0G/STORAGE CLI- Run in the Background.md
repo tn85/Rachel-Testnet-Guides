@@ -150,7 +150,8 @@ do
     --contract "$CONTRACT" \
     --key "$KEY" \
     --node "$NODE_URL" \
-    --file "$FILE"
+    --file "$FILE" \
+    --finality-required true
 
     # Check if the file was uploaded successfully
     if [ $? -eq 0 ]; then
@@ -168,7 +169,8 @@ do
     /root/0g-storage-client/0g-storage-client download \
     --node "$NODE_URL" \
     --root "$AA" \
-    --file "$OUTPUT_FILE"
+    --file "$OUTPUT_FILE" \
+    --proof
 
     # Check if the file was downloaded successfully
     if [ $? -eq 0 ]; then
