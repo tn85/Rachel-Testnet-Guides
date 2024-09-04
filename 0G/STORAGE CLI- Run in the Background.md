@@ -187,7 +187,7 @@ do
     # After uploading and downloading, delete the files to keep the system clean
     rm "$FILE"
     rm "$OUTPUT_FILE"
-    sleep 300
+    sleep 60
 done
 
 # Record the total number of successful uploads and downloads
