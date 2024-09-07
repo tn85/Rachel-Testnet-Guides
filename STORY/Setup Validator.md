@@ -171,7 +171,6 @@ curl -s localhost:26657/status | jq -r '.result.validator_info'
      "voting_power": "15000" 
 }
 ```
-- ## Paste HEX Validator Address: D6F92FD7D0460AA9E4CF4D299FE479E93395DCF3 to search on https://testnet.story.explorers.guru/
 
 
 
