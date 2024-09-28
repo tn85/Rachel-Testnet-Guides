@@ -16,7 +16,7 @@ Before you install the DA node, make sure you have more than 10 A0GI in your wal
 ### 1. Install Dependencies
 ```bash
 sudo apt-get update
-sudo apt-get install git cargo clang cmake build-essential pkg-config openssl libssl-dev protobuf-compiler
+sudo apt-get install git cargo clang cmake build-essential pkg-config openssl libssl-dev protobuf-compiler -y
 ```
 
 ### 2. Install Rustup
