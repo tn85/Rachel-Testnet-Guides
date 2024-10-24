@@ -8,9 +8,9 @@
  ```bash
 git clone https://github.com/0glabs/0g-storage-client.git
 cd 0g-storage-client
-git tag -d v0.5.1
+git tag -d v0.6.1
 git fetch --all --tags
-git checkout e283cdbfef2f3e5c94f97ef4c1815b464851f399
+git checkout 88f563d81a60208a44ed7662a240e307277f7965
 git submodule update --init
 go build
  ```
