@@ -70,10 +70,12 @@ chmod a+x /root/0g-storage-client/upload.sh
 
 ## Bước 2: Thiết lập lịch trình  tự động up script ##
 1. Mở file crontab:
-```crontab -e```
-2. Chọn trình soạn thảo mong muốn: 
+```
+crontab -e
+```
+3. Chọn trình soạn thảo mong muốn: 
 (Chọn /bin/nano ) Bấm `1` -> `Enter`
-3. Thiết lập file crontab để chạy script vào mỗi giờ hàng ngày:
+4. Thiết lập file crontab để chạy script vào mỗi giờ hàng ngày:
 (Xoá hết chữ  trước đó và nhập lệnh sau)
 ```
 0 * * * * /root/0g-storage-client/upload.sh
@@ -97,7 +99,10 @@ grep "Successfully uploaded" /root/0g-storage-client/upload_log_$(date +"%Y%m%d"
 ```
 grep "Successfully uploaded" /root/0g-storage-client/upload_log_$(date +"%Y%m%d").log
 ```
-
+Chạy thủ công:
+```
+nano /root/0g-storage-client/upload.sh
+```
 
 
 
