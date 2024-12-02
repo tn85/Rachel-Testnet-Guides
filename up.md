@@ -101,7 +101,7 @@ grep "Successfully uploaded" /root/0g-storage-client/upload_log_$(date +"%Y%m%d"
 ```
 Chạy thủ công:
 ```
-nano /root/0g-storage-client/upload.sh
+/root/0g-storage-client/upload.sh
 ```
 
 
