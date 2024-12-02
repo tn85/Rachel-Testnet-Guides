@@ -41,7 +41,7 @@ do
     --url "$UPLOAD_URL" \
     --key "$KEY" \
     --indexer "$INDEXER" \
-    --file "./$FILE"
+    --file "./$FILE" \
     --finality-required true
 
     # Check if the file was uploaded successfully
