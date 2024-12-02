@@ -34,7 +34,7 @@ do
     KEY="YOUR_PRIVATE_KEY"
 
     # Generate a new file
-    /root/0g-storage-client/0g-storage-client gen --size 5485760 --file "./$FILE"
+    /root/0g-storage-client/0g-storage-client gen --size 102400 --file "./$FILE"
 
     # Upload the file
     /root/0g-storage-client/0g-storage-client upload \
